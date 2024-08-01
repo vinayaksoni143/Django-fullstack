@@ -43,3 +43,17 @@ class Order(models.Model):
     def __str__(self):
         return 'Order - #'+str(self.id)
 
+
+class OrderItem(models.Model):
+
+    quantity = models.PositiveBigIntegerField(default=1)
+    price = models.DecimalField(max_digits = 8, decimal_places = 2)
+
+    # foreign key
+    user = models.ForeignKey(User, on_delete = models.CASCADE, null=True, blank=True)
+    order = models.ForeignKey(Order, on_delete = models.CASCADE, null=True)
+    product = models.ForeignKey(Product, on_delete = models.CASCADE, null=True)
+
+    def __str__(self):
+        return 'Order Item - #'+str(self.id)
+
