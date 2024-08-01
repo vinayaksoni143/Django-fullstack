@@ -1,0 +1,86 @@
+{% include "store/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    body {
+        background-color: #f8f9fa; /* Light background for contrast */
+    }
+    .dashboard-section {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .dashboard-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-bottom: 20px;
+    }
+    .dashboard-card h4 {
+        font-weight: bold;
+        color: #333333;
+    }
+    .dashboard-card p {
+        color: #555555;
+    }
+    .dashboard-card hr {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .dashboard-card .btn {
+        margin-top: 15px;
+        margin-right: 10px;
+    }
+    .dashboard-card .btn-danger {
+        margin-left: 10px;
+    }
+    .icon-wrapper {
+        font-size: 1.5rem;
+        color: #007bff; /* Primary color for icons */
+        margin-right: 10px;
+    }
+</style>
+
+<div class="container dashboard-section">
+    <!-- Welcome Card -->
+    <div class="dashboard-card">
+        <h4><i class="fa fa-smile-o icon-wrapper" aria-hidden="true"></i>Welcome, {{ user.username }}</h4>
+        <hr>
+        <p>Welcome to your dashboard! Here, you can:</p>
+        <ul>
+            <li>Track your orders</li>
+            <li>Manage your account</li>
+        </ul>
+    </div>
+
+    <!-- Track Orders Card -->
+    <div class="dashboard-card">
+        <h4><i class="fa fa-list-alt icon-wrapper" aria-hidden="true"></i>Track Your Orders</h4>
+        <hr>
+        <p>Keep an eye on all your orders and stay updated with their status.</p>
+        <a class="btn btn-primary" href="#">My Orders</a>
+    </div>
+
+    <!-- Manage shipping Card -->
+    <div class="dashboard-card">
+        <h4><i class="fa fa-chevron-circle-right icon-wrapper" aria-hidden="true"></i> Manage shipping</h4>
+        <hr>
+        <p>Add or update your shipping information</p>
+        <a class="btn btn-primary" href="{% url 'manage-shipping' %}">Manage Shipping</a>
+    </div>
+
+
+    <!-- Manage Account Card -->
+    <div class="dashboard-card">
+        <h4><i class="fa fa-user icon-wrapper" aria-hidden="true"></i>Manage Your Account</h4>
+        <hr>
+        <p>Update your information or delete your account. We hope to continue serving you!</p>
+        <a class="btn btn-primary" href="{% url 'update-account' %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'delete-account' %}">Delete</a>
+    </div>
+</div>
+
+{% endblock %}

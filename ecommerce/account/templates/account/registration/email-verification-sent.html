@@ -1,0 +1,21 @@
+{% include 'store/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<body>
+    <div class="container" style="max-width: 600px; margin-top: 50px;">
+        <div class="text-center">
+            <h1 class="mb-4">Verification Email Sent! <i class="bi bi-envelope-open text-primary"></i></h1>
+            
+            <p class="lead">Thank you for registering. A verification email has been sent to <strong>{{ email }}</strong>.</p>
+            <p>Please check your inbox and follow the instructions in the email to verify your account.</p>
+            <p>If you don’t see the email, please check your spam or junk folder.</p>
+            <p>Still having trouble? <a href="/resend-verification-email" class="btn btn-link">Click here to resend the verification email</a>.</p>
+            <p>Thank you for joining us!</p>
+            <p>The Team</p>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

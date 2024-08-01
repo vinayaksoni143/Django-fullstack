@@ -1,0 +1,27 @@
+{% include 'store/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<body>
+    <div class="container" style="max-width: 800px; margin-top: 50px;">
+        <div class="text-center">
+            <h1 class="mb-4">Account Verification Failed <i class="bi bi-x-circle text-danger"></i></h1>
+            <p class="lead">We're sorry, but we were unable to verify your account.</p>
+            <p>This could be due to one of the following reasons:</p>
+            <ul class="text-start" style="margin: auto; max-width: 400px;">
+                <li>The verification link may have expired.</li>
+                <li>The verification link is invalid.</li>
+                <li>Your account may already be verified.</li>
+            </ul>
+            <p>Please try again by requesting a new verification email:</p>
+            <p>
+                <a href="/resend-verification-email" class="btn btn-primary">Resend Verification Email</a>
+            </p>
+            <p>If you have any questions or need assistance, feel free to <a href="/contact-us" class="btn btn-link">contact us</a>.</p>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% include 'store/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<body>
+    <div class="container" style="max-width: 800px; margin-top: 50px;">
+        <div class="text-center">
+            <h1 class="mb-4">Account Successfully Verified! <i class="bi bi-check-circle text-success"></i></h1>
+            <p class="lead">Congratulations, {{ user.username }}!</p>
+            <p>Your email address has been successfully verified. You can now access all the features of your account.</p>
+            <p>Thank you for joining us!</p>
+            <p>
+                <a href="{% url 'user-login' %}" class="btn btn-primary">Login to Your Account</a>
+            </p>
+            <p>If you have any questions or need assistance, feel free to <a href="/contact-us" class="btn btn-link">contact us</a>.</p>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

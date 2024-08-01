@@ -1,0 +1,16 @@
+{% include "store/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card text-center">
+        <div class="card-body">
+            <h1 class="card-title text-danger"><i class="fa fa-check-circle" aria-hidden="true"></i></h1>
+            <h2 class="card-title">Account Deleted</h2>
+            <p class="card-text">Your account has been successfully deleted.</p>
+            <p>We're sorry to see you go! If you have any feedback or need further assistance, please don't hesitate to <a href="">contact us</a>.</p>
+            <a href="{% url 'store' %}" class="btn btn-primary mt-3">Return to Homepage</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
