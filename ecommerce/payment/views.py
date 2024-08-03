@@ -79,7 +79,7 @@ def complete_order(request):
     return response
 
 
-def payment_success(request):ecommerce/payment/views.py
+def payment_success(request):
 
     # clear shopping cart
 

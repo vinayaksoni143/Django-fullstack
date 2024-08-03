@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
+import environ
+
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env()  # Reads the .env file
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,6 +51,7 @@ INSTALLED_APPS = [
     'mathfilters',
     'crispy_forms', # for register forms
     'payment', #django app
+    'storages' # django-storages package
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
@@ -146,3 +154,54 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'vinayaksoni.dev@gmail.com'
 EMAIL_HOST_PASSWORD = 'fqjm wrxz nwme tcar'
+
+# AWS credentials:
+
+# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+
+# S3 configuration settings:
+
+AWS_STORAGE_BUCKET_NAME = 'django-ecommerce-static' 
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_FILE_OVERWRITE = False
+
+
+
+# Admin styling adjustment
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+
+# RDS (Database) configuration settings:
+
+'''
+DATABASES = {
+
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': '',
+
+        'USER': '',
+
+        'PASSWORD': '',
+
+        'HOST': '',
+
+        'PORT': '5432',
+
+
+    }
+
+}
+'''
+
+
+
