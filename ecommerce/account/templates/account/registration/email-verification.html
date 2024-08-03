@@ -15,10 +15,10 @@
         <p>Hi {{ user }},</p>
         <p>Thank you for registering with us! To activate your account, please verify your email address by clicking the button below:</p>
         <div class="text-center">
-            <a href="http://{{ domain }}{% url 'email-verification' uidb64=uid token=token %}" class="btn btn-primary btn-lg">Verify Email</a>
+            <a href="https://{{ domain }}{% url 'email-verification' uidb64=uid token=token %}" class="btn btn-primary btn-lg">Verify Email</a>
         </div>
         <p class="mt-3">If the button doesn’t work, you can also copy and paste the following link into your web browser:</p>
-        <p><a href="http://{{ domain }}{% url 'email-verification' uidb64=uid token=token %}" class="text-primary">http://{{ domain }}{% url 'email-verification' uidb64=uid token=token %}/</a></p>
+        <p><a href="https://{{ domain }}{% url 'email-verification' uidb64=uid token=token %}" class="text-primary">https://{{ domain }}{% url 'email-verification' uidb64=uid token=token %}/</a></p>
         <p>If you didn’t register for this account, please ignore this email.</p>
         <p>Thank you!</p>
         <p>The Team</p>
