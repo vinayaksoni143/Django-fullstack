@@ -1,1 +1,5 @@
 ecommerce/ecommerce/.env
+
+env/
+.env
+.venv

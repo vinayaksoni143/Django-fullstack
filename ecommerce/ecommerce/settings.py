@@ -9,10 +9,11 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import environ
 
 from pathlib import Path
 
-import environ
+
 
 # Initialize environment variables
 env = environ.Env()
@@ -30,9 +31,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&zab16!g!c#22-6wyt9eu)6f%ns&68wsv4(x%sr%iggc(wda*s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -92,12 +93,14 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
 
 
 # Password validation
@@ -157,8 +160,8 @@ EMAIL_HOST_PASSWORD = 'fqjm wrxz nwme tcar'
 
 # AWS credentials:
 
-# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 
 # S3 configuration settings:
 
@@ -180,20 +183,20 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # RDS (Database) configuration settings:
 
-'''
+
 DATABASES = {
 
     'default': {
 
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': '',
+        'NAME': env('DATABASE_NAME'),
 
-        'USER': '',
+        'USER': env('DATABASE_USER'),
 
-        'PASSWORD': '',
+        'PASSWORD': env('DATABASE_PASS'),
 
-        'HOST': '',
+        'HOST': env('DATABASE_HOST'),
 
         'PORT': '5432',
 
@@ -201,7 +204,3 @@ DATABASES = {
     }
 
 }
-'''
-
-
-
